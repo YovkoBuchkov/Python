@@ -1,5 +1,3 @@
-#C:\Users\YovoB\AppData\Local\Programs\Python\Python39-32\Scripts\pyinstaller.exe  --onefile cow_bull_window.py
-
 while True:
     user_input = input("4 digits without duplication: ")
     if len(user_input) == 4 and user_input.isdigit() and len(set(user_input)) == 4:
