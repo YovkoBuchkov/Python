@@ -1,3 +1,7 @@
+for key, value in sorted(stored_names.items(), key=lambda x: x[0]):
+    print(f"{key} - {value['health']} health, {value['damage']:.2f} damage")
+################################################################
+
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 even_number = list(filter(lambda x: x % 2 == 0, numbers))
