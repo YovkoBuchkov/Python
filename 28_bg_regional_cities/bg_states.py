@@ -1,6 +1,6 @@
 import pandas
 import turtle
-
+import time
 screen = turtle.Screen()
 screen.title = ("Bulgaria States Game")
 image = "bg_states.gif"
@@ -16,22 +16,27 @@ state_data = pandas.read_csv("bg_states.csv")
 list_state = state_data.state.to_list()
 guessed_states = []
 
-for state in list_state:
-    p = turtle.Turtle()
-    p.hideturtle()
-    p.penup()
-    state_data_row = state_data[state_data.state == state]
-    p.goto(state_data_row.x.item(), state_data_row.y.item() - 20)
-    p.write(f"{state_data_row.people.item()}")
+
+p = turtle.Turtle()
+p.hideturtle()
+p.penup()
+p.speed("fastest")
+for _, row in state_data.iterrows():
+    p.goto(row.x, row.y - 20)
+    p.write(f"{row.people}")
 
 while len(guessed_states) < 28:
     guess = turtle.Turtle()
     guess.hideturtle()
     guess.penup()
+    guess.speed('fastest')
     guess.goto(0, 250)
-    guess.write(f"Познай областните градове, като виждаш населението в района!", align="center", font=FONT)
+
+
+    guess.write(f"Познай БГ областните градове, като виждаш населението в района!", align="center", font=FONT)
     answer_state = screen.textinput(title=f"{len(guessed_states)}/28 Познати градове",
                                     prompt="Какъв е следващият областен град:").title()
+
     if answer_state == "Exit" or answer_state == "Изход":
         break
     if answer_state in list_state and answer_state not in guessed_states:
@@ -43,5 +48,3 @@ while len(guessed_states) < 28:
         t.goto(state_data_row.x.item(), state_data_row.y.item())
         t.write(f"{answer_state}")
 
-
-turtle.mainloop()
