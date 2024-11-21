@@ -32,7 +32,8 @@ while len(guessed_states) < 28:
     guess.write(f"Познай областните градове, като виждаш населението в района!", align="center", font=FONT)
     answer_state = screen.textinput(title=f"{len(guessed_states)}/28 Познати градове",
                                     prompt="Какъв е следващият областен град:").title()
-
+    if answer_state == "Exit" or answer_state == "Изход":
+        break
     if answer_state in list_state and answer_state not in guessed_states:
         guessed_states.append(answer_state)
         t = turtle.Turtle()
