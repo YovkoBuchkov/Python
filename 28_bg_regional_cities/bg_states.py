@@ -1,6 +1,6 @@
 import pandas
 import turtle
-import time
+
 screen = turtle.Screen()
 screen.title = ("Bulgaria States Game")
 image = "bg_states.gif"
