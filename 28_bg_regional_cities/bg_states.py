@@ -1,6 +1,6 @@
 import pandas
 import turtle
-import time
+
 screen = turtle.Screen()
 screen.title = ("Bulgaria States Game")
 image = "bg_states.gif"
@@ -16,11 +16,11 @@ state_data = pandas.read_csv("bg_states.csv")
 list_state = state_data.state.to_list()
 guessed_states = []
 
-
 p = turtle.Turtle()
 p.hideturtle()
 p.penup()
 p.speed("fastest")
+
 for _, row in state_data.iterrows():
     p.goto(row.x, row.y - 20)
     p.write(f"{row.people}")
