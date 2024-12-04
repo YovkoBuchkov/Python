@@ -66,3 +66,32 @@ result = repeat_str(input_str, counter)
 print(result)
 
 ################################################################
+add = lambda x,y : x + y
+result = add(3,4)
+print(result)
+
+################################################################
+
+square = lambda x: x ** 2
+result = square(5)
+print(result)
+
+################################################################
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+even_number = list(filter(lambda x: x % 2 == 0, numbers))
+
+print(even_number)  #[2, 4, 6, 8]
+
+################################################################
+my_list = [1, 2, 3, 4, 5]
+result = list(map(lambda x: x ** 2, my_list))
+print(result)  #[1, 4, 9, 16, 25]
+
+################################################################
+my_list = [1, 2, 3, 4, 5]
+result = reduce(lambda x,y: x * y, my_list)
+print(result)  #120
+
+################################################################
